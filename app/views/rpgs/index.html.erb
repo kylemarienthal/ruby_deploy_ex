@@ -1,0 +1,58 @@
+<div class="game">
+    <div id='gold-div'>
+      Your Gold: <input type='text' value = '<%= @gold %>' disabled='true'/>
+    </div>
+
+<div class="buildings-div">
+
+  <div id='buildings-div'>
+    <h3>Pharm</h3>
+    <p>earns 10-20 golds</p>
+    <form action="<%= process_money_path %>" method="post">
+      <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+      <input type="hidden" name="building" value="farm" />
+      <button type = 'submit'> Find Gold!</button>
+    </form>
+  </div>
+
+  <div id='buildings-div'>
+    <h3>Cave</h3>
+    <p>earns 5-10 golds</p>
+      <form action="<%= process_money_path %>" method="post">
+        <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+        <input type="hidden" name="building" value="cave" />
+        <button type = 'submit'> Find Gold!</button>
+      </form>
+  </div>
+
+  <div id='buildings-div'>
+    <h3>House</h3>
+    <p>earns 2-5 golds</p>
+      <form action="<%= process_money_path %>" method="post">
+        <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+        <input type="hidden" name="building" value="house" />
+        <button type = 'submit'> Find Gold!</button>
+      </form>
+  </div>
+
+  <div id='buildings-div'>
+    <h3>Casino</h3>
+    <p>earns/takes 0-50 golds</p>
+      <form action="<%= process_money_path %>" method="post">
+        <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+        <input type="hidden" name="building" value="casino" />
+        <button type = 'submit'> Find Gold!</button>
+      </form>
+  </div>
+
+  </div>
+
+  <div class = 'activities-div'>
+    <p>Activities:</p>
+    <div id='activities'>
+      <% @activities.each do |activity| %>
+        <p class="<%= activity ['color'] %>"><%= activity ['message'] %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
